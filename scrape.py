@@ -4,11 +4,9 @@ import csv
 from datetime import datetime
 import sqlite3
 
-#conn = sqlite3.connect('options.db')
+conn = sqlite3.connect('options.db')
 
-#c = conn.cursor()
-
-#c.execute('')
+c = conn.cursor()
 
 # variable for url
 quote_page = 'https://finance.yahoo.com/quote/MSFT/options?date=1545350400'
@@ -77,7 +75,18 @@ for col in row_box.find_all('td'):
     onerow.append(coltext)
 parentlist.append(onerow)
 
-with open('index.csv', 'a') as csv_file:
-    writer = csv.writer(csv_file)
-    for row in parentlist:
-        writer.writerow(row)
+#with open('index.csv', 'a') as csv_file:
+#    writer = csv.writer(csv_file)
+#    for row in parentlist:
+#        writer.writerow(row)
+
+for row in parentlist:
+    try:
+        labels = [row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10]]
+        c.execute('INSERT INTO MSFTCalls (ContractName, Date, Strike, LastPrice, Bid, Ask, Change, PChange, Volume, Openinterest, ImpliedVolatility) VALUES (?,?,?,?,?,?,?,?,?,?,?)', labels)
+        #format(cn=row[0],dt=row[1],strike=row[2],lp=row[3],bid=row[4],ask=row[5],ch=row[6],pch=row[7],vol=row[8],oi=row[9],iv=row[10]))
+    except sqlite3.IntegrityError:
+        print('I don\'t have primary keys so this error shouldn\'t happen.')
+
+conn.commit()
+conn.close()
