@@ -78,7 +78,7 @@ for col in row_box.find_all('td'):
     onerow.append(coltext)
 parentlist.append(onerow)
 
-
+# AAPL stock below
 parentlist2 = []
 
 applerow = []
