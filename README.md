@@ -7,7 +7,15 @@ Instead, I want to be glued to the screen staring at VSCode! Hurray--a major qua
 
 Super-Eureka is a Python script that uses BeautifulSoup4 to scrape $MSFT call options from Yahoo. It saves the last price, bid/ask, IV, and more into a sqlite3 database. This makes it possible to perform SQL queries on the data and down the line, plot the price of an option over time! Yes, very simple, but even the small things in life are worth enjoying.
 
+## Usage
+Scraper currently scrapes both MSFT and AAPL call options near the money and has one fixed expiry date it looks at. Plotter takes two parameters: the table and the strike price. 
+
+`python scraper.py`
+
+`python plotter.py MSFTCalls 105`
+
 ## Changelog
 ### Version 0.0.1
+- 2018 09-14 - plotter.py successfully plots data.
 - 2018-09-13 - SQLite3 online.
 - 2018-09-12 - Scraper is scraping. Poops into a CSV file.
