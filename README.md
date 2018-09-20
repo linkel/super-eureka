@@ -16,13 +16,15 @@ Scraper currently scrapes both MSFT and AAPL call options near the money and has
 
 ## Changelog
 ### Version 0.0.1
+- 2018-09-20 - scrape.py now grabs information on all the strike prices instead of just the ones near the money
 - 2018-09-19 - Added support for scraping Jan 2019 calls.
 - 2018-09-14 - plotter.py successfully plots data.
 - 2018-09-13 - SQLite3 online.
-- 2018-09-12 - Scraper is scraping. Poops into a CSV file.
+- 2018-09-12 - Scraper is scraping. Plops data into a CSV file.
 
 ## To Do
-- Allow user input on selection of expiry dates to scrape.
-- Scrape calls that are not near the money as well.
-- Scrape puts. 
-- Allow plotting volume and IV.
+- [ ] Allow user input on selection of expiry dates to scrape.
+- [x] Scrape calls that are not near the money as well.
+- [ ] Scrape puts. 
+- [ ] Allow plotting volume and IV.
+- [ ] Allow selection of which expiry dates to plot in plotter.py
