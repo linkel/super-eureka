@@ -20,113 +20,39 @@ applepg = urlopen(apple_page)
 soup = BeautifulSoup(page, 'html.parser')
 applesoup = BeautifulSoup(applepg, 'html.parser')
 
-#dateList = []
-#strikeList = []
-#date_box = soup.find_all('td', attrs={'class': 'data-col1'})
-# date = date_box.text.strip()
-#for item in date_box:
-#    date = item.text.strip()
-#    dateList.append(date)
-
-#strike_box = soup.find_all('td', attrs={'class': 'data-col2'})
-
-#for item in strike_box:
-#    strike = item.text.strip()
-#    strikeList.append(strike)
-
 parentlist = []
-onerow = []
+ctr = 0
 
-row_box = soup.find('tr', attrs={'class': 'data-row5'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    onerow.append(coltext)
-parentlist.append(onerow)
-
-onerow = []
-row_box = soup.find('tr', attrs={'class': 'data-row6'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    onerow.append(coltext)
-parentlist.append(onerow)
-
-onerow = []
-row_box = soup.find('tr', attrs={'class': 'data-row7'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    onerow.append(coltext)
-parentlist.append(onerow)
-
-onerow = []
-row_box = soup.find('tr', attrs={'class': 'data-row8'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    onerow.append(coltext)
-parentlist.append(onerow)
-
-onerow = []
-row_box = soup.find('tr', attrs={'class': 'data-row9'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    onerow.append(coltext)
-parentlist.append(onerow)
-
-onerow = []
-row_box = soup.find('tr', attrs={'class': 'data-row10'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    onerow.append(coltext)
-parentlist.append(onerow)
+while ctr < 17:
+    onerow =[]
+    MSFTrow = "data-row" + str(ctr)
+    row_box = soup.find('tr', attrs={'class': MSFTrow})
+    try:
+        for col in row_box.find_all('td'):
+            coltext = col.get_text()
+            onerow.append(coltext)
+        parentlist.append(onerow)
+    except AttributeError:
+        print("Nonetype object at row " + str(ctr))
+    ctr += 1
 
 # AAPL stock below
 parentlist2 = []
+AAPLctr = 0
 
-applerow = []
-row_box = applesoup.find('tr', attrs={'class': 'data-row21'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    applerow.append(coltext)
-parentlist2.append(applerow)
-
-applerow = []
-row_box = applesoup.find('tr', attrs={'class': 'data-row22'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    applerow.append(coltext)
-parentlist2.append(applerow)
-
-applerow = []
-row_box = applesoup.find('tr', attrs={'class': 'data-row23'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    applerow.append(coltext)
-parentlist2.append(applerow)
-
-applerow = []
-row_box = applesoup.find('tr', attrs={'class': 'data-row24'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    applerow.append(coltext)
-parentlist2.append(applerow)
-
-applerow = []
-row_box = applesoup.find('tr', attrs={'class': 'data-row25'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    applerow.append(coltext)
-parentlist2.append(applerow)
-
-applerow = []
-row_box = applesoup.find('tr', attrs={'class': 'data-row26'})
-for col in row_box.find_all('td'):
-    coltext = col.get_text()
-    applerow.append(coltext)
-parentlist2.append(applerow)
-
-#with open('index.csv', 'a') as csv_file:
-#    writer = csv.writer(csv_file)
-#    for row in parentlist:
-#        writer.writerow(row)
+while AAPLctr < 41:
+    applerow = []
+    AAPLrow = "data-row" + str(AAPLctr)
+    row_box = applesoup.find('tr', attrs={'class': AAPLrow})
+    try:
+        for col in row_box.find_all('td'):
+            coltext = col.get_text()
+            applerow.append(coltext)
+        parentlist2.append(applerow)
+    except AttributeError:
+        print("Nonetype object at row " + str(AAPLctr))
+    AAPLctr += 1
+    # print(AAPLctr)
 
 for row in parentlist:
     try:

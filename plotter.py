@@ -22,5 +22,5 @@ except sqlite3.OperationalError:
     print("{} does not exist. Check your db for the exact table name.".format(tablepath))
 print(datenow)
 print(lastprice)
-plt.plot(datenow,lastprice, 'ro')
+plt.plot(datenow,lastprice, 'ro:')
 plt.show()
