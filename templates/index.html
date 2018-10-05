@@ -1,0 +1,18 @@
+{% block main %}
+<h1>Microsoft Calls Expiring January 2019</h1></h1>
+<table style = "width:100%" border=1>
+    <tr>
+        <th>Contract Name</th>
+        <th>Date</th>
+        <th>Strike</th>
+        <th>LastPrice</th>
+    </tr>
+    
+    {% for item in items %}
+    <tr>
+        {% for section in item %}
+            <td>{{section}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+{% endblock %}
