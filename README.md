@@ -12,9 +12,12 @@ Scraper currently scrapes both MSFT and AAPL call options near the money and has
 
 `python scraper.py`
 
-`python plotter.py MSFTCalls 105`
+`python plotter.py MSFTCallsJan2019 105`
 
 ## Changelog
+### Version 0.0.2
+- 2018-10-05 - Flask app to display one table in the browser.
+- 2018-09-26 - Created copies of the main script to pull Jan and Apr 2019 calls.
 ### Version 0.0.1
 - 2018-09-20 - scrape.py now grabs information on all the strike prices instead of just the ones near the money
 - 2018-09-19 - Added support for scraping Jan 2019 calls.
@@ -23,8 +26,10 @@ Scraper currently scrapes both MSFT and AAPL call options near the money and has
 - 2018-09-12 - Scraper is scraping. Plops data into a CSV file.
 
 ## To Do
-- [ ] Allow user input on selection of expiry dates to scrape.
 - [x] Scrape calls that are not near the money as well.
+- [x] Allow selection of which expiry dates to plot in plotter.py (limited)
+- [ ] Allow user input on selection of expiry dates to scrape.
 - [ ] Scrape puts. 
 - [ ] Allow plotting volume and IV.
-- [ ] Allow selection of which expiry dates to plot in plotter.py
+- [x] Display a table in the browser using Flask as the backend controller.
+- [ ] Create a dropdown menu to select different tables in the browser.
