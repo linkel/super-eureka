@@ -1,16 +1,22 @@
+{% extends "layout.html" %}
+
 {% block title %}
-    Select Table to Examine
+    Table Selection
 {% endblock %}
 
 {% block main %}
+<h1>Select Table to View</h1>
+<br>
+<div><p>Using the dropdown menu, please select which stock and expiry date of call options to view.</p></div>
     <form action="/selection" method="post">
-        <select name="symbol">
+        <select class="form-control" name="symbol">
         {% for item in table %}
             <option value="{{ item }}">{{ item }}</option>
         {% endfor %}
         </select>
         <br>
         <br>
-        <button class="btn btn-primary" type="submit">View this Table</button>
+        <button class="btn btn-primary" type="submit">View This Table</button>
     </form>
+  
 {% endblock %}

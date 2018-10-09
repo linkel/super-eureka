@@ -16,6 +16,7 @@ Scraper currently scrapes both MSFT and AAPL call options near the money and has
 
 ## Changelog
 ### Version 0.0.2
+- 2018-10-09 - Bootstrap theme for the pages with a header.
 - 2018-10-08 - Now shows a dropdown menu, enabling selection of which table to view.
 - 2018-10-05 - Added Flask app, displays just one table in the browser.
 - 2018-09-26 - Created copies of the main script to pull Jan and Apr 2019 calls.
@@ -35,4 +36,5 @@ Scraper currently scrapes both MSFT and AAPL call options near the money and has
 - [x] Display a table in the browser using Flask as the backend controller.
 - [x] Create a dropdown menu to select different tables in the browser.
 - [ ] Render my plots in the browser above the table info.
-- [ ] Make the homepage more aesthetic Part 1.
+- [x] Make the homepage more aesthetic Part 1.
+- [ ] Make the homepage more aesthetic Part 2.

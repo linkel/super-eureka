@@ -27,7 +27,7 @@ def selection():
         tablepath = request.form.get("symbol")
         db = get_db()
         cursor = db.execute("SELECT ContractName, Date, Strike, LastPrice FROM %s" % (tablepath))
-        return render_template('selection.html', items=cursor.fetchall())
+        return render_template('selection.html', items=cursor.fetchall(), table = tablepath)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -37,3 +37,7 @@ def index():
     for name in availableTables:
         listofTables.append(name[0])
     return render_template("index.html", table = listofTables)
+
+@app.route("/about", methods=["GET", "POST"])
+def about():
+    return render_template("about.html")

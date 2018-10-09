@@ -1,11 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Viewing {{ table }}
+{% endblock %}
+
 {% block main %}
-<h1>Selected Calls</h1></h1>
+<h1>Selected Calls</h1>
 <table style = "width:100%" border=1>
     <tr>
         <th>Contract Name</th>
         <th>Date</th>
         <th>Strike</th>
-        <th>LastPrice</th>
+        <th>Price</th>
     </tr>
     
     {% for item in items %}
