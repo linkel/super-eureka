@@ -33,4 +33,6 @@ Scraper currently scrapes both MSFT and AAPL call options near the money and has
 - [ ] Scrape puts. 
 - [ ] Allow plotting volume and IV.
 - [x] Display a table in the browser using Flask as the backend controller.
-- [ ] Create a dropdown menu to select different tables in the browser.
+- [x] Create a dropdown menu to select different tables in the browser.
+- [ ] Render my plots in the browser above the table info.
+- [ ] Make the homepage more aesthetic Part 1.
