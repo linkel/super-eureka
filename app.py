@@ -26,8 +26,14 @@ def selection():
         # get the table name
         tablepath = request.form.get("symbol")
         db = get_db()
+        listofPrices = []
         cursor = db.execute("SELECT ContractName, Date, Strike, LastPrice FROM %s" % (tablepath))
-        return render_template('selection.html', items=cursor.fetchall(), table = tablepath)
+        strikeList = db.execute("SELECT Strike FROM %s" % (tablepath))
+        for name in strikeList:
+            for number in name:
+                listofPrices.append(number)
+        listofPrices = sorted(list(set(listofPrices)))
+        return render_template('selection.html', items=cursor.fetchall(), table = tablepath, strprices = listofPrices)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -41,3 +47,11 @@ def index():
 @app.route("/about", methods=["GET", "POST"])
 def about():
     return render_template("about.html")
+
+@app.route("/strikeprice", methods=["GET", "POST"])
+def strikeprice():
+    db = get_db()
+    tablepath = request.form.get("table")
+    strikePrice = request.form.get("strikeprices")
+    sPrice = db.execute("SELECT * FROM %s WHERE Strike=%s" % (tablepath, strikePrice))
+    return render_template('strikeprice.html', items=sPrice.fetchall(), table = tablepath, strikeprice = strikePrice)

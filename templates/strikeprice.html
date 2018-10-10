@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Viewing Strike Price {{ strikeprice }} from {{ table }}
+{% endblock %}
+
+{% block main %}
+<h1>Strike Price of {{ strikeprice }} from {{ table }}</h1>
+<table style = "width:110%; text-align:center" border=1>
+    <tr>
+        <th>Contract Name</th>
+        <th>Date</th>
+        <th>Strike</th>
+        <th>Price</th>
+        <th>Bid</th>
+        <th>Ask</th>
+        <th>Change</th>
+        <th>Percent Change</th>
+        <th>Volume</th>
+        <th>Open Interest</th>
+        <th>Implied Volatility</th>
+    </tr>
+    
+    {% for item in items %}
+    <tr>
+        {% for section in item %}
+            <td>{{section}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+{% endblock %}

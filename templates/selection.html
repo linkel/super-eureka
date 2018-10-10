@@ -5,8 +5,21 @@
 {% endblock %}
 
 {% block main %}
-<h1>Selected Calls</h1>
-<table style = "width:100%" border=1>
+<h1>Calls from {{ table }}</h1>
+<h2>Filter by selecting a strike price:</h2>
+<form action="/strikeprice" method="post">
+    <select class="form-control" name="strikeprices">
+    {% for item in strprices %}
+        <option value="{{ item }}">{{ item }}</option>
+    {% endfor %}
+    </select>
+    <input type="hidden" name="table" value="{{ table }}">
+    <br>
+    <br>
+    <button class="btn btn-primary" type="submit">View by Strike Price</button>
+</form>
+<br>
+<table class="centeredTables" style = "width:110%; text-align:center" border=1>
     <tr>
         <th>Contract Name</th>
         <th>Date</th>
